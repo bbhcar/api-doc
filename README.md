@@ -12,8 +12,8 @@ Header Authorization: Bearer token
   /auth/token 请求方式: POST, Body
 ```
 {
-    "username":"admin",
-    "password":"P@ssw0rd"
+    "username":"",
+    "password":""
 }
 ```
 返回
