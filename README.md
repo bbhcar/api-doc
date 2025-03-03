@@ -21,7 +21,7 @@ Header Authorization: Bearer token
 }
 ```
 
-* 个人信息
+* 个人信息  
 /user/profile 请求方式 GET  
 返回
 ```
@@ -94,7 +94,7 @@ Header Authorization: Bearer token
     }
 }
 ```
-* 查看/下载 工具
+* 查看/下载 工具  
 /toolbox/DA95751CE7E1448FAF60A1FFD8BBE037 请求方式 GET   
 返回
 ```
@@ -112,7 +112,7 @@ Header Authorization: Bearer token
     "toolDesc": "BBHDesc 是远程控制工具"
 }
 ```
-* 添加工具
+* 添加工具  
 /toolbox/addToolBox 请求方式 POST  
 ```
 {
@@ -142,7 +142,7 @@ Header Authorization: Bearer token
     "toolDesc": "BBHDesc2 是远程控制工具"
 }
 ```
-* 修改工具
+* 修改工具  
 /toolbox/editToolBox 请求方式 PUT  
 ```
 {
@@ -173,15 +173,13 @@ Header Authorization: Bearer token
     "toolDesc": "BBHDesc3 是远程控制工具"
 }
 ```
-
-* 删除工具
+* 删除工具  
 /toolbox/deleteToolBox/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE   
 返回
 ```
 Http Status Code : 200
 ```
-
-* 获取服务器列表
+* 获取服务器列表  
 /program/server/getServerListByAreaType?areaType=1&pageNo=1&pageSize=20 请求方式 GET areaType 1 = 国内 2 = 国际  
 返回
 ```
@@ -220,8 +218,7 @@ Http Status Code : 200
     }
 }
 ```
-
-* 获取服务器详细信息
+* 获取服务器详细信息  
 /program/server/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
 返回
 ```
@@ -241,8 +238,7 @@ Http Status Code : 200
     "areaType": 1
 }
 ```
-
-* 添加服务器
+* 添加服务器  
 /program/server/addServer 请求方式 POST  
 ```
 {
@@ -273,8 +269,7 @@ Http Status Code : 200
     "areaType": 1
 }
 ```
-
-* 修改服务器
+* 修改服务器  
 /program/server/editServer 请求方式 PUT  
 ```
 {
@@ -306,15 +301,14 @@ Http Status Code : 200
     "areaType": 1
 }
 ```
-
-* 删除服务器
+* 删除服务器  
 /program/server/deleteServer/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE  
 返回
 ```
 Http Status Code : 200
 ```
 
-* 查看公告
+* 查看公告  
 /program/announcement 请求方式 GET  
 返回
 ```
@@ -330,7 +324,7 @@ Http Status Code : 200
 }
 ```
 
-* 修改公告
+* 修改公告  
 /program/announcement/settings 请求方式 PUT  
 ```
 {
@@ -349,7 +343,7 @@ Http Status Code : 200
 }
 ```
 
-* 心跳检测
+* 心跳检测  
 /online/check?clientId=&clientType=&heartbeatType= 请求方式 GET
 
 | 参数  | 说明                                             |
@@ -365,7 +359,7 @@ Http Status Code : 200
 # 如果结果为 offline 则客户端立即下线
 ```
 
-* 匿名根据应用ID查询应用详情
+* 匿名根据应用ID查询应用详情  
 /anonymous/program/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
 返回
 ```
@@ -388,7 +382,7 @@ Http Status Code : 200
 }
 ```
 
-* 匿名根据应用名称查询应用详情
+* 匿名根据应用名称查询应用详情  
 /anonymous/program/name?programName= 请求方式 GET  
 返回  
 ```
@@ -411,7 +405,7 @@ Http Status Code : 200
 }
 ```
 
-* 应用列表
+* 应用列表  
 /program 请求方式 GET  
 返回
 ```
@@ -453,7 +447,7 @@ Http Status Code : 200
 }
 ```
 
-* 应用详情
+* 应用详情  
 /programe/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 GET  
 返回
 ```
@@ -476,7 +470,7 @@ Http Status Code : 200
 }
 ```
 
-* 添加应用
+* 添加应用  
 /program/addProgram 请求方式 POST  
 ```
 {
@@ -512,7 +506,7 @@ Http Status Code : 200
 }
 ```
 
-* 编辑应用
+* 编辑应用  
 /programe/editProgram 请求方式 PUT  
 ```
 {
@@ -554,13 +548,13 @@ Http Status Code : 200
 }
 ```
 
-* 删除应用
+* 删除应用  
 /program/deleteProgram/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 DELETE  
 ```
 Http Status Code : 200
 ```
 
-* 套餐明细列表 (USB国内，USB国际，等等)
+* 套餐明细列表 (USB国内，USB国际，等等)  
 /combo/items 请求方式 GET
 ```
 [
@@ -633,12 +627,24 @@ Http Status Code : 200
 ]
 ```
 
-* 获取套餐列表
+* 获取套餐列表  
 /combo?keyword=&pageNo=1&pageSize=20 请求方式 GET  
 返回
 ```
 {
     "data": [
+        {
+            "id": "57373bdd0fb94c489408eff5f9a3c949",
+            "changeVersion": 0,
+            "createdBy": "admin",
+            "createdDate": 1740988693000,
+            "lastModifiedBy": "admin",
+            "lastModifiedDate": 1740988693000,
+            "comboName": "free1",
+            "comboContent": "DOIP国内+DOIP国际",
+            "comboPrice": "200",
+            "comboValidity": "27"
+        },
         {
             "id": "faee49a8b7934480a0365bc99ee2c8e7",
             "changeVersion": 0,
@@ -659,7 +665,7 @@ Http Status Code : 200
         "prevPage": 0,
         "currentPage": 1,
         "totalPage": 1,
-        "rowCount": 1,
+        "rowCount": 2,
         "pageSize": 20,
         "hasNext": false,
         "hasPrev": false,
@@ -669,7 +675,7 @@ Http Status Code : 200
     }
 }
 ```
-* 获取套餐详情
+* 获取套餐详情  
 /combo/7e09c882b44e43be8ad40469b912fb80 请求方式 GET  
 返回
 ```
@@ -692,4 +698,85 @@ Http Status Code : 200
         }
     ]
 }
+```
+
+* 添加套餐  
+/combo 请求方式 POST  
+```
+{
+    "comboName": "free1",
+    "comboPrice": "200",
+    "comboValidity": "27",
+    "comboItems": [
+        { "id": "cb86b6b5f6e2464d8fe06b648800ecdb" },
+        { "id": "da3a0e809fdb484ebac057559972da26" }
+    ]
+}
+```
+返回
+```
+{
+    "id": "57373bdd0fb94c489408eff5f9a3c949",
+    "createdBy": "admin",
+    "createdDate": 1740988692999,
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": 1740988692999,
+    "comboName": "free1",
+    "comboContent": "DOIP国内+DOIP国际",
+    "comboPrice": "200",
+    "comboValidity": "27",
+    "comboItems": [
+        {
+            "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
+            "itemName": "DOIP国内"
+        },
+        {
+            "id": "da3a0e809fdb484ebac057559972da26",
+            "itemName": "DOIP国际"
+        }
+    ]
+}
+```
+
+* 编辑套餐  
+/combo 请求方式 PUT  
+```
+{
+    "id": "57373bdd0fb94c489408eff5f9a3c949",
+    "comboName": "free2",
+    "comboPrice": "200",
+    "comboValidity": "27",
+    "comboItems": [
+        { "id": "f46b1c8434fd48e9b97568154762f79b" },
+        { "id": "da3a0e809fdb484ebac057559972da26" }
+    ]
+}
+```
+返回
+```
+{
+    "id": "57373bdd0fb94c489408eff5f9a3c949",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": 1740989001744,
+    "comboName": "free2",
+    "comboContent": "SoftEther VPN国内+DOIP国际",
+    "comboPrice": "200",
+    "comboValidity": "27",
+    "comboItems": [
+        {
+            "id": "f46b1c8434fd48e9b97568154762f79b",
+            "itemName": "SoftEther VPN国内"
+        },
+        {
+            "id": "da3a0e809fdb484ebac057559972da26",
+            "itemName": "DOIP国际"
+        }
+    ]
+}
+```
+
+* 删除套餐  
+/combo/faee49a8b7934480a0365bc99ee2c8e7 请求方式 DELETE
+```
+Http Status Code : 200
 ```
