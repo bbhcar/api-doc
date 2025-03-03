@@ -7,7 +7,7 @@ Header Authorization: Bearer token
 ```
 
 * 登录接口  
-  /auth/token 请求方式: POST, Body
+/auth/token 请求方式: POST, Body
 ```
 {
     "username":"admin",
@@ -22,8 +22,8 @@ Header Authorization: Bearer token
 ```
 
 * 个人信息
-  /user/profile 请求方式 GET  
-  返回
+/user/profile 请求方式 GET  
+返回
 ```
 {
     "id": "887de78680084e4a97da2ca0108e9a22",
@@ -43,8 +43,8 @@ Header Authorization: Bearer token
 }
 ```
 * 工具箱列表  
-  /toolbox/getToolBoxListByToolTypeAndUserType?keyword=b&toolType=USB&userType=1&pageNo=1&pageSize=20 请求方式 GET  
-  返回
+/toolbox/getToolBoxListByToolTypeAndUserType?keyword=b&toolType=USB&userType=1&pageNo=1&pageSize=20 请求方式 GET  
+返回
 ```
 {
     "data": [
@@ -95,8 +95,8 @@ Header Authorization: Bearer token
 }
 ```
 * 查看/下载 工具
-  /toolbox/DA95751CE7E1448FAF60A1FFD8BBE037 请求方式 GET   
-  返回
+/toolbox/DA95751CE7E1448FAF60A1FFD8BBE037 请求方式 GET   
+返回
 ```
 {
     "id": "DA95751CE7E1448FAF60A1FFD8BBE037",
@@ -113,7 +113,7 @@ Header Authorization: Bearer token
 }
 ```
 * 添加工具
-  /toolbox/addToolBox 请求方式 POST  
+/toolbox/addToolBox 请求方式 POST  
 ```
 {
     "toolName": "bbhdesk2",
@@ -143,7 +143,7 @@ Header Authorization: Bearer token
 }
 ```
 * 修改工具
-  /toolbox/editToolBox 请求方式 PUT  
+/toolbox/editToolBox 请求方式 PUT  
 ```
 {
     "id": "c0beafa5939f4105b60d3d304f81e4ba",
@@ -175,15 +175,15 @@ Header Authorization: Bearer token
 ```
 
 * 删除工具
-  /toolbox/deleteToolBox/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE   
-  返回
+/toolbox/deleteToolBox/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE   
+返回
 ```
 Http Status Code : 200
 ```
 
 * 获取服务器列表
-  /program/server/getServerListByAreaType?areaType=1&pageNo=1&pageSize=20 请求方式 GET areaType 1 = 国内 2 = 国际  
-  返回
+/program/server/getServerListByAreaType?areaType=1&pageNo=1&pageSize=20 请求方式 GET areaType 1 = 国内 2 = 国际  
+返回
 ```
 {
     "data": [
@@ -222,8 +222,8 @@ Http Status Code : 200
 ```
 
 * 获取服务器详细信息
-  /program/server/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
-  返回
+/program/server/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
+返回
 ```
 {
     "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
@@ -243,7 +243,7 @@ Http Status Code : 200
 ```
 
 * 添加服务器
-  /program/server/addServer 请求方式 POST  
+/program/server/addServer 请求方式 POST  
 ```
 {
     "serverAddr": "1.1.1.1",
@@ -275,7 +275,7 @@ Http Status Code : 200
 ```
 
 * 修改服务器
-  /program/server/editServer 请求方式 PUT  
+/program/server/editServer 请求方式 PUT  
 ```
 {
     "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
@@ -308,15 +308,15 @@ Http Status Code : 200
 ```
 
 * 删除服务器
-  /program/server/deleteServer/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE  
-  返回
+/program/server/deleteServer/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE  
+返回
 ```
 Http Status Code : 200
 ```
 
 * 查看公告
-  /program/announcement 请求方式 GET  
-  返回
+/program/announcement 请求方式 GET  
+返回
 ```
 {
     "id": "070a1b10a5ef4ef6aa478b7cc603bd68",
@@ -331,7 +331,7 @@ Http Status Code : 200
 ```
 
 * 修改公告
-  /program/announcement/settings 请求方式 PUT  
+/program/announcement/settings 请求方式 PUT  
 ```
 {
     "announcementCn": "大家好,我是谁",
@@ -350,7 +350,7 @@ Http Status Code : 200
 ```
 
 * 心跳检测
-  /online/check?clientId=&clientType=&heartbeatType= 请求方式 GET
+/online/check?clientId=&clientType=&heartbeatType= 请求方式 GET
 
 | 参数  | 说明                                             |
 |---|------------------------------------------------|
@@ -366,7 +366,7 @@ Http Status Code : 200
 ```
 
 * 匿名根据应用ID查询应用详情
-  /anonymous/program/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
+/anonymous/program/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
 返回
 ```
 {
@@ -389,7 +389,7 @@ Http Status Code : 200
 ```
 
 * 匿名根据应用名称查询应用详情
-  /anonymous/program/name?programName= 请求方式 GET  
+/anonymous/program/name?programName= 请求方式 GET  
 返回  
 ```
 {
@@ -560,7 +560,7 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
-* 套餐明细 (USB国内，USB国际，等等)
+* 套餐明细列表 (USB国内，USB国际，等等)
 /combo/items 请求方式 GET
 ```
 [
@@ -632,6 +632,64 @@ Http Status Code : 200
     }
 ]
 ```
+
+* 获取套餐列表
+/combo?keyword=&pageNo=1&pageSize=20 请求方式 GET  
+返回
+```
+{
+    "data": [
+        {
+            "id": "faee49a8b7934480a0365bc99ee2c8e7",
+            "changeVersion": 0,
+            "createdBy": "SYSTEM",
+            "createdDate": 1740986714000,
+            "lastModifiedBy": "SYSTEM",
+            "lastModifiedDate": 1740986714000,
+            "comboName": "free",
+            "comboContent": "usb国内+usb国际",
+            "comboPrice": "100",
+            "comboValidity": "7"
+        }
+    ],
+    "paging": {
+        "firstPage": 1,
+        "lastPage": 1,
+        "nextPage": 0,
+        "prevPage": 0,
+        "currentPage": 1,
+        "totalPage": 1,
+        "rowCount": 1,
+        "pageSize": 20,
+        "hasNext": false,
+        "hasPrev": false,
+        "hasFirst": true,
+        "hasLast": true,
+        "startOffset": 0
+    }
+}
+```
 * 获取套餐详情
 /combo/7e09c882b44e43be8ad40469b912fb80 请求方式 GET  
 返回
+```
+{
+    "id": "faee49a8b7934480a0365bc99ee2c8e7",
+    "comboName": "free",
+    "comboContent": "usb国内+usb国际",
+    "comboPrice": "100",
+    "comboValidity": "7",
+    "comboItems": [
+        {
+            "itemName": "USB国内",
+            "areaType": 1,
+            "itemSort": 1
+        },
+        {
+            "itemName": "USB国际",
+            "areaType": 2,
+            "itemSort": 2
+        }
+    ]
+}
+```
