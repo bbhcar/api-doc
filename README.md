@@ -1,6 +1,4 @@
-# api-doc
-BBHCar 接口文档
-
+## BBHCar 接口说明
 API 地址前缀: https://admin.bbhcar.top/api  
 除了登录接口和地址中带有/anonymous/的接口,其余所有接口需要在header添加 
 ```
@@ -12,8 +10,8 @@ Header Authorization: Bearer token
   /auth/token 请求方式: POST, Body
 ```
 {
-    "username":"",
-    "password":""
+    "username":"admin",
+    "password":"P@ssw0rd"
 }
 ```
 返回
@@ -417,7 +415,8 @@ Http Status Code : 200
 /program 请求方式 GET  
 返回
 ```
-[
+{
+    "data": [
     {
         "id": "0ce52ed49cfd44d6a14dced94a9645d7",
         "changeVersion": 0,
@@ -435,7 +434,23 @@ Http Status Code : 200
         "programStatus": 111,
         "programDesc": "111"
     }
-]
+  ],
+  "paging": {
+      "firstPage": 1,
+      "lastPage": 1,
+      "nextPage": 0,
+      "prevPage": 0,
+      "currentPage": 1,
+      "totalPage": 1,
+      "rowCount": 1,
+      "pageSize": 20,
+      "hasNext": false,
+      "hasPrev": false,
+      "hasFirst": true,
+      "hasLast": true,
+      "startOffset": 0
+    }
+}
 ```
 
 * 应用详情
@@ -545,3 +560,78 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
+* 套餐明细 (USB国内，USB国际，等等)
+/combo/items 请求方式 GET
+```
+[
+    {
+        "id": "7e09c882b44e43be8ad40469b912fb80",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1740924938000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1740971010000,
+        "itemName": "USB国内",
+        "areaType": 1,
+        "itemSort": 1
+    },
+    {
+        "id": "58796971fcd54ddcbc72d9622a88d3cb",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1740924938000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1740971009000,
+        "itemName": "USB国际",
+        "areaType": 2,
+        "itemSort": 2
+    },
+    {
+        "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1740924938000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1740970840000,
+        "itemName": "DOIP国内",
+        "areaType": 1,
+        "itemSort": 3
+    },
+    {
+        "id": "da3a0e809fdb484ebac057559972da26",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1740924938000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1740970841000,
+        "itemName": "DOIP国际",
+        "areaType": 2,
+        "itemSort": 4
+    },
+    {
+        "id": "f46b1c8434fd48e9b97568154762f79b",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1740924938000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1740970844000,
+        "itemName": "SoftEther VPN国内",
+        "areaType": 1,
+        "itemSort": 5
+    },
+    {
+        "id": "6d99e06fe47d4414a5f7ee1907fb6f1a",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1740924938000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1740970848000,
+        "itemName": "SoftEther VPN国际",
+        "areaType": 2,
+        "itemSort": 6
+    }
+]
+```
+* 获取套餐详情
+/combo/7e09c882b44e43be8ad40469b912fb80 请求方式 GET  
+返回
