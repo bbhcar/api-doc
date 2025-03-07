@@ -406,7 +406,7 @@ Http Status Code : 200
 ```
 
 * 应用列表  
-/program?pageNo=1&pageSize=20 请求方式 GET  
+/program?keyword=&programStatus=&pageNo=1&pageSize=20 请求方式 GET  
 返回
 ```
 {
@@ -780,3 +780,82 @@ Http Status Code : 200
 ```
 Http Status Code : 200
 ```
+
+* 获取系统角色  
+/api/user/roles 请求方式 GET
+返回
+```
+[
+    {
+        "id": "38ddf55cd77255e7a43d275842c6a1ee",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1722413684000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1722414399000,
+        "roleName": "ROLE_FLASHDATEN",
+        "roleDesc": "固件用户"
+    },
+    {
+        "id": "71ddf58ae77145e7a43d275842c6a1cd",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1721046613000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1722414406000,
+        "roleName": "ROLE_USER",
+        "roleDesc": "普通用户"
+    },
+    {
+        "id": "31d170c9f85a43f2b06efdffa685b749",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1721920226000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1722764791000,
+        "roleName": "ROLE_ADMIN",
+        "roleDesc": "车型管理员"
+    },
+    {
+        "id": "a469c743524611ef9d7a0242ac110003",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1722764883000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1722764937000,
+        "roleName": "ROLE_DATASET",
+        "roleDesc": "参数管理员"
+    },
+    {
+        "id": "3930ac5de84b419982f6b58f8e2d4447",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1721046613000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1722764939000,
+        "roleName": "ROLE_SUPER",
+        "roleDesc": "超级管理员"
+    },
+    {
+        "id": "a469c743524611ef9d7a0242ac110004",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1725687060000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1725804190000,
+        "roleName": "ROLE_REPORT",
+        "roleDesc": "诊断报告"
+    },
+    {
+        "id": "82999d2bee3241f59e87b0d095acd3c0",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1741329731000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1741329731000,
+        "roleName": "ROLE_SFD1",
+        "roleDesc": "SFD1"
+    }
+]
+```
+
