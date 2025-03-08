@@ -955,7 +955,7 @@ Http Status Code : 200
 }
 ```
 
-* 用户列表删除用户
+* 用户列表删除用户  
 /api/user/887de78680084e4a97da2ca0108e9a22 请求方式 DELETE  
   返回
 ```
