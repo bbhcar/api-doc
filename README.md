@@ -42,6 +42,20 @@ Header Authorization: Bearer token
     ]
 }
 ```
+
+* 修改密码 (用户修改自己的密码)  
+/api/user/change-password 请求方式 PUT  
+```
+{
+    "oldPassword": "P@ssw0rd",
+    "newPassword": "P@ssw0rd1"
+}
+```
+返回
+```
+Http Status Code : 200
+```
+
 * 工具箱列表  
 /toolbox/getToolBoxListByToolTypeAndUserType?keyword=b&toolType=USB&userType=1&pageNo=1&pageSize=20 请求方式 GET  
 返回
@@ -858,4 +872,18 @@ Http Status Code : 200
     }
 ]
 ```
+
+* 管理员修改用户密码  
+/change-password-by-admin 请求方式 PUT  
+```
+{
+    "userId": "887de78680084e4a97da2ca0108e9a22",
+    "newPassword": "P@ssw0rd1"
+}
+```
+返回
+```
+Http Status Code : 200
+```
+
 
