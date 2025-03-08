@@ -886,7 +886,7 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
-* 用户列表获取用户详情
+* 用户列表获取用户详情  
 /api/user/887de78680084e4a97da2ca0108e9a22 请求方式 GET  
 返回
 ```
@@ -913,7 +913,7 @@ Http Status Code : 200
 }
 ```
 
-* 用户列表
+* 用户列表  
 /api/user?keyword=刘&userType=&comboId=&status=&pageNo=1&pageSize=20 请求方式 GET  
 返回
 ```
