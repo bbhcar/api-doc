@@ -886,4 +886,73 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
+* 用户列表获取用户详情
+/api/user/887de78680084e4a97da2ca0108e9a22 请求方式 GET  
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1740319938000,
+    "username": "admin",
+    "password": "$2a$10$sl76JLjQ.hyP6QPz7yxAbOrHrCSfUJ5BB8qbkjocrQL7VIH2c0zWC",
+    "mobile": "13888888888",
+    "status": true,
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "3c9f714e8b554369a765ac42e6f970a1",
+    "comboName": "111",
+    "userType": "4",
+    "realName": "刘书宝",
+    "remark": "刘书宝牛逼plus"
+}
+```
+
+* 用户列表
+/api/user?keyword=刘&userType=&comboId=&status=&pageNo=1&pageSize=20 请求方式 GET  
+返回
+```
+{
+    "data": [
+        {
+            "id": "887de78680084e4a97da2ca0108e9a22",
+            "changeVersion": 0,
+            "createdBy": "SYSTEM",
+            "createdDate": 1740319938000,
+            "lastModifiedBy": "SYSTEM",
+            "lastModifiedDate": 1740319938000,
+            "username": "admin",
+            "password": "",
+            "mobile": "13888888888",
+            "status": true,
+            "comboId": "3c9f714e8b554369a765ac42e6f970a1",
+            "comboName": "111",
+            "userType": "4",
+            "realName": "刘书宝",
+            "remark": "刘书宝牛逼plus"
+        }
+    ],
+    "paging": {
+        "firstPage": 1,
+        "lastPage": 1,
+        "nextPage": 0,
+        "prevPage": 0,
+        "currentPage": 1,
+        "totalPage": 1,
+        "rowCount": 1,
+        "pageSize": 20,
+        "hasNext": false,
+        "hasPrev": false,
+        "hasFirst": true,
+        "hasLast": true,
+        "startOffset": 0
+    }
+}
+```
+
 
