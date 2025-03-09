@@ -462,7 +462,7 @@ Http Status Code : 200
 ```
 
 * 应用详情  
-/programe/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 GET  
+/program/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 GET  
 返回
 ```
 {
@@ -521,7 +521,7 @@ Http Status Code : 200
 ```
 
 * 编辑应用  
-/programe/editProgram 请求方式 PUT  
+/program/editProgram 请求方式 PUT  
 ```
 {
     "id": "0ce52ed49cfd44d6a14dced94a9645d7",
@@ -874,7 +874,7 @@ Http Status Code : 200
 ```
 
 * 管理员修改用户密码  
-/change-password-by-admin 请求方式 PUT  
+/api/user/change-password-by-admin 请求方式 PUT  
 ```
 {
     "userId": "887de78680084e4a97da2ca0108e9a22",
@@ -1010,6 +1010,48 @@ Http Status Code : 200
 }
 ```
 
-
-
-
+* 用户列表修改用户  
+/api/user/editUser 请求方式 PUT
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
+    "comboName": "Super Engineer",
+    "expireTime": 1772986998000,
+    "userType": "3",
+    "realName": "刘书宝",
+    "remark": "管理员",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+}
+```
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1740319938000,
+    "username": "admin",
+    "password": "",
+    "mobile": "13888888888",
+    "status": true,
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
+    "comboName": "Super Engineer",
+    "expireTime": 1772986998000,
+    "userType": "3",
+    "realName": "刘书宝",
+    "remark": "管理员",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false
+}
+```
