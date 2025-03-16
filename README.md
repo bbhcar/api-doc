@@ -322,6 +322,17 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
+* 重启服务器  
+/api/program/server/rebootServer 请求方式 PUT  
+```
+["9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d"]
+```
+返回
+```
+Http Status Code : 200
+```
+
+
 * 查看公告  
 /program/announcement 请求方式 GET  
 返回
@@ -1056,11 +1067,131 @@ Http Status Code : 200
 }
 ```
 
-* 重启服务器  
-/api/program/server/rebootServer 请求方式 PUT  
+* 全球加速vpn列表  
+/api/program/vpn/getVpnPagingListByKeywordAndVpnType?keyword=&vpnType=&pageNo=1&pageSize=10 请求方式 GET  
+返回  
 ```
-["9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d"]
+{
+    "data": [
+        {
+            "id": "ff82fd68493b4f609eae87450d949525",
+            "changeVersion": 0,
+            "createdBy": "SYSTEM",
+            "createdDate": 1742130331000,
+            "lastModifiedBy": "SYSTEM",
+            "lastModifiedDate": 1742130331000,
+            "vpnName": "11111",
+            "vpnType": 1,
+            "vpnIp": "111.111.111.111",
+            "vpnIPSec": "fffff",
+            "username": "vpnserver",
+            "password": "testxte",
+            "vpnDesc": "描述"
+        }
+    ],
+    "paging": {
+        "firstPage": 1,
+        "lastPage": 1,
+        "nextPage": 0,
+        "prevPage": 0,
+        "currentPage": 1,
+        "totalPage": 1,
+        "rowCount": 1,
+        "pageSize": 10,
+        "hasNext": false,
+        "hasPrev": false,
+        "hasFirst": true,
+        "hasLast": true,
+        "startOffset": 0
+    }
+}
+```
+
+* 全球加速vpn详情  
+/api/program/vpn/ff82fd68493b4f609eae87450d949525 请求方式 GET  
+返回
+```
+{
+    "id": "ff82fd68493b4f609eae87450d949525",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1742130331000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1742130331000,
+    "vpnName": "11111",
+    "vpnType": 1,
+    "vpnIp": "111.111.111.111",
+    "vpnIPSec": "fffff",
+    "username": "vpnserver",
+    "password": "testxte",
+    "vpnDesc": "描述"
+}
+```
+
+* 添加全球加速vpn  
+/api/program/vpn/addVpn 请求方式 POST  
+```
+{
+    "vpnName": "222",
+    "vpnType": 2,
+    "vpnIp": "222.222.222.222",
+    "vpnIPSec": "cccccc",
+    "username": "vpnserver2",
+    "password": "testxte123",
+    "vpnDesc": "描述2"
+}
+```
+返回  
+```
+{
+    "id": "8485bd76ae0b4b768c28706b2245b505",
+    "createdBy": "admin",
+    "createdDate": 1742131090242,
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": 1742131090242,
+    "vpnName": "222",
+    "vpnType": 2,
+    "vpnIp": "222.222.222.222",
+    "vpnIPSec": "cccccc",
+    "username": "vpnserver2",
+    "password": "testxte123",
+    "vpnDesc": "描述2"
+}
+```
+
+* 修改全球加速vpn  
+/api/program/vpn/editVpn 请求方式 PUT  
+```
+{
+    "id": "8485bd76ae0b4b768c28706b2245b505",
+    "vpnName": "222edit",
+    "vpnType": 2,
+    "vpnIp": "222.222.222.222",
+    "vpnIPSec": "cccccc",
+    "username": "vpnserver2",
+    "password": "testxte123",
+    "vpnDesc": "描述2"
+}
 ```
 返回
 ```
+{
+    "id": "8485bd76ae0b4b768c28706b2245b505",
+    "lastModifiedBy": "admin",
+    "lastModifiedDate": 1742131198570,
+    "vpnName": "222edit",
+    "vpnType": 2,
+    "vpnIp": "222.222.222.222",
+    "vpnIPSec": "cccccc",
+    "username": "vpnserver2",
+    "password": "testxte123",
+    "vpnDesc": "描述2"
+}
+```
+
+* 删除全球加速vpn  
+/api/program/vpn/deleteVpn/ff82fd68493b4f609eae87450d949525 请求方式 DELETE  
+  返回
+```
 Http Status Code : 200
+```
