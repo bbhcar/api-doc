@@ -1,6 +1,6 @@
 ## BBHCar 接口说明
 API 地址前缀: https://admin.bbhcar.top/api  
-除了登录接口和地址中带有/anonymous/的接口,其余所有接口需要在header添加 
+除了登录接口和地址中带有/anonymous/的接口,其余所有接口需要在header添加
 ```
 Header Authorization: Bearer token  
 #token 为登录接口返回的 token
@@ -44,7 +44,7 @@ Header Authorization: Bearer token
 ```
 
 * 修改密码 (用户修改自己的密码)  
-/api/user/change-password 请求方式 PUT  
+/api/user/change-password 请求方式 PUT
 ```
 {
     "oldPassword": "P@ssw0rd",
@@ -127,7 +127,7 @@ Http Status Code : 200
 }
 ```
 * 添加工具  
-/toolbox/addToolBox 请求方式 POST  
+/toolbox/addToolBox 请求方式 POST
 ```
 {
     "toolName": "bbhdesk2",
@@ -157,7 +157,7 @@ Http Status Code : 200
 }
 ```
 * 修改工具  
-/toolbox/editToolBox 请求方式 PUT  
+/toolbox/editToolBox 请求方式 PUT
 ```
 {
     "id": "c0beafa5939f4105b60d3d304f81e4ba",
@@ -253,7 +253,7 @@ Http Status Code : 200
 }
 ```
 * 添加服务器  
-/program/server/addServer 请求方式 POST  
+/program/server/addServer 请求方式 POST
 ```
 {
     "serverAddr": "1.1.1.1",
@@ -284,7 +284,7 @@ Http Status Code : 200
 }
 ```
 * 修改服务器  
-/program/server/editServer 请求方式 PUT  
+/program/server/editServer 请求方式 PUT
 ```
 {
     "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
@@ -323,7 +323,7 @@ Http Status Code : 200
 ```
 
 * 重启服务器  
-/api/program/server/rebootServer 请求方式 PUT  
+/api/program/server/rebootServer 请求方式 PUT
 ```
 ["9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d"]
 ```
@@ -350,7 +350,7 @@ Http Status Code : 200
 ```
 
 * 修改公告  
-/program/announcement/settings 请求方式 PUT  
+/program/announcement/settings 请求方式 PUT
 ```
 {
     "announcementCn": "大家好,我是谁",
@@ -384,6 +384,45 @@ Http Status Code : 200
 # 如果结果为 offline 则客户端立即下线
 ```
 
+* 上报客户端连接信息  
+/api/user/report-client-connection-infomation 请求方式 PUT  
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "connectType": "USB",
+    "connectIp": "111.23.3.90"
+    "connectPort": "10420"
+}
+```
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1740319938000,
+    "username": "admin",
+    "password": "",
+    "mobile": "13888888888",
+    "status": true,
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
+    "comboName": "Super Engineer",
+    "expireTime": 1772986998000,
+    "userType": "3",
+    "realName": "刘书宝",
+    "remark": "管理员",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false
+}
+```
+
+
 * 匿名根据应用ID查询应用详情  
 /anonymous/program/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
 返回
@@ -409,7 +448,7 @@ Http Status Code : 200
 
 * 匿名根据应用名称查询应用详情  
 /anonymous/program/name?programName= 请求方式 GET  
-返回  
+返回
 ```
 {
     "id": "0ce52ed49cfd44d6a14dced94a9645d7",
@@ -496,7 +535,7 @@ Http Status Code : 200
 ```
 
 * 添加应用  
-/program/addProgram 请求方式 POST  
+/program/addProgram 请求方式 POST
 ```
 {
     "programName": "111",
@@ -532,7 +571,7 @@ Http Status Code : 200
 ```
 
 * 编辑应用  
-/program/editProgram 请求方式 PUT  
+/program/editProgram 请求方式 PUT
 ```
 {
     "id": "0ce52ed49cfd44d6a14dced94a9645d7",
@@ -574,7 +613,7 @@ Http Status Code : 200
 ```
 
 * 删除应用  
-/program/deleteProgram/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 DELETE  
+/program/deleteProgram/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 DELETE
 ```
 Http Status Code : 200
 ```
@@ -726,7 +765,7 @@ Http Status Code : 200
 ```
 
 * 添加套餐  
-/combo 请求方式 POST  
+/combo 请求方式 POST
 ```
 {
     "comboName": "free1",
@@ -764,7 +803,7 @@ Http Status Code : 200
 ```
 
 * 编辑套餐  
-/combo 请求方式 PUT  
+/combo 请求方式 PUT
 ```
 {
     "id": "57373bdd0fb94c489408eff5f9a3c949",
@@ -885,7 +924,7 @@ Http Status Code : 200
 ```
 
 * 管理员修改用户密码  
-/api/user/change-password-by-admin 请求方式 PUT  
+/api/user/change-password-by-admin 请求方式 PUT
 ```
 {
     "userId": "887de78680084e4a97da2ca0108e9a22",
@@ -968,13 +1007,13 @@ Http Status Code : 200
 
 * 用户列表删除用户  
 /api/user/887de78680084e4a97da2ca0108e9a22 请求方式 DELETE  
-  返回
+返回
 ```
 Http Status Code : 200
 ```
 
 * 用户列表添加用户  
-/api/user/addUser 请求方式 POST  
+/api/user/addUser 请求方式 POST
 ```
 {
     "username": "ffff",
@@ -1066,10 +1105,116 @@ Http Status Code : 200
     "online": false
 }
 ```
+* 强制下线客户端  
+/api/user/force-offline-client 请求方式 PUT   
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22"
+}
+```
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1740319938000,
+    "username": "admin",
+    "password": "",
+    "mobile": "13888888888",
+    "status": true,
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
+    "comboName": "Super Engineer",
+    "expireTime": 1772986998000,
+    "userType": "3",
+    "realName": "刘书宝",
+    "remark": "管理员",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false
+}
+```
+
+* 强制下线服务端  
+/api/user/force-offline-server 请求方式 PUT  
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22"
+}
+```
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1740319938000,
+    "username": "admin",
+    "password": "",
+    "mobile": "13888888888",
+    "status": true,
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
+    "comboName": "Super Engineer",
+    "expireTime": 1772986998000,
+    "userType": "3",
+    "realName": "刘书宝",
+    "remark": "管理员",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false
+}
+```
+
+* 强制下线客户端和服务端  
+/api/user/force-offline 请求方式 PUT  
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22"
+}
+```
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "SYSTEM",
+    "lastModifiedDate": 1740319938000,
+    "username": "admin",
+    "password": "",
+    "mobile": "13888888888",
+    "status": true,
+    "roles": [
+        "ROLE_ADMIN",
+        "ROLE_USER"
+    ],
+    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
+    "comboName": "Super Engineer",
+    "expireTime": 1772986998000,
+    "userType": "3",
+    "realName": "刘书宝",
+    "remark": "管理员",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false
+}
+```
+
+
 
 * 全球加速vpn列表  
 /api/program/vpn/getVpnPagingListByKeywordAndVpnType?keyword=&vpnType=&pageNo=1&pageSize=10 请求方式 GET  
-返回  
+返回
 ```
 {
     "data": [
@@ -1129,7 +1274,7 @@ Http Status Code : 200
 ```
 
 * 添加全球加速vpn  
-/api/program/vpn/addVpn 请求方式 POST  
+/api/program/vpn/addVpn 请求方式 POST
 ```
 {
     "vpnName": "222",
@@ -1141,7 +1286,7 @@ Http Status Code : 200
     "vpnDesc": "描述2"
 }
 ```
-返回  
+返回
 ```
 {
     "id": "8485bd76ae0b4b768c28706b2245b505",
@@ -1160,7 +1305,7 @@ Http Status Code : 200
 ```
 
 * 修改全球加速vpn  
-/api/program/vpn/editVpn 请求方式 PUT  
+/api/program/vpn/editVpn 请求方式 PUT
 ```
 {
     "id": "8485bd76ae0b4b768c28706b2245b505",
@@ -1193,5 +1338,4 @@ Http Status Code : 200
 /api/program/vpn/deleteVpn/ff82fd68493b4f609eae87450d949525 请求方式 DELETE  
   返回
 ```
-Http Status Code : 200
-```
+
