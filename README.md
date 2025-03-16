@@ -1055,3 +1055,12 @@ Http Status Code : 200
     "online": false
 }
 ```
+
+* 重启服务器  
+/api/program/server/rebootServer 请求方式 PUT  
+```
+["9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d"]
+```
+返回
+```
+Http Status Code : 200
