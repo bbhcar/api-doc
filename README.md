@@ -1341,3 +1341,26 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
+* 用户是否可以注册  匿名接口，不需要token  
+/api/auth/can-register  请求方式 GET  
+返回
+```
+{
+    "canRegister": true
+}
+```
+
+* 禁止服务器注册  
+/api/program/server/stop-regester 请求方式 PUT  
+返回
+```
+Http Status Code : 200
+```
+
+* 启用服务器注册  
+/api/program/server/start-regester 请求方式 PUT  
+返回
+```
+Http Status Code : 200
+```
+
