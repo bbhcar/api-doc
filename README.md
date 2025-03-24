@@ -596,6 +596,33 @@ Http Status Code : 200
 }
 ```
 
+* 服务端获取客户端连接信息
+/api/user/client-connection-infomation 请求方式 GET  
+返回
+```
+{
+    "userId": "0ce52ed49cfd44d6a14dced94a9645d7",
+    "connectType": "USB",
+    "connectIp": "111.23.3.90"
+    "connectPort": "10420",
+    "vpn": {
+        "id": "ff82fd68493b4f609eae87450d949525",
+        "changeVersion": 0,
+        "createdBy": "SYSTEM",
+        "createdDate": 1742130331000,
+        "lastModifiedBy": "SYSTEM",
+        "lastModifiedDate": 1742130331000,
+        "vpnName": "11111",
+        "vpnType": 1,
+        "vpnIp": "",
+        "vpnIPSec": "加密",
+        "username": "加密",
+        "password": "加密",
+        "vpnDesc": "描述"
+    }
+}
+```
+
 
 * 匿名根据应用ID查询应用详情  
 /anonymous/program/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
