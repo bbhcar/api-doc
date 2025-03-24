@@ -7,7 +7,7 @@ Header Authorization: Bearer token
 ```
 
 * 登录接口  
-/auth/token 请求方式: POST, Body
+/auth/token 请求方式: POST  
 ```
 {
     "username":"admin",
@@ -19,6 +19,19 @@ Header Authorization: Bearer token
 {
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJodHRwczovL2JiaGNhci5jb20vY2xhaW0vcm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJodHRwczovL3ZhZ3Rvb2xzLmNvbS9jbGFpbS9tb2JpbGUiOiIxMzg4ODg4ODg4OCIsImh0dHBzOi8vYmJoY2FyLmNvbS9jbGFpbS9lbmFibGVkIjp0cnVlLCJodHRwczovL2JiaGNhci5jb20vY2xhaW0vdXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTc0MDkyNTQ0OCwiaHR0cHM6Ly9iYmhjYXIuY29tL2NsYWltL2NyZWF0ZWQiOjE3NDAzMjA2NDg3MTksImh0dHBzOi8vYmJoY2FyLmNvbS9jbGFpbS91c2VySWQiOiI4ODdkZTc4NjgwMDg0ZTRhOTdkYTJjYTAxMDhlOWEyMiJ9.zLP0zLYlDjyngn5qFGbl16mYAb43-oVA_TyT0rs6od-EIZp5moQ0UmdCrslMIGPxfCh_vAMCLVDbefZ6B-8Qhw"
 }
+```
+
+* 发送短信验证码
+/auth/sendSms 请求方式: POST
+```
+{
+    "username":"admin",
+    "mobile":"+86-13991306319"
+}
+```
+返回
+```
+Http Status Code : 200
 ```
 
 * 个人信息  
