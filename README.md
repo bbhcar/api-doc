@@ -7,7 +7,7 @@ Header Authorization: Bearer token
 ```
 
 * 登录接口  
-/auth/token 请求方式: POST  
+/auth/token 请求方式 POST  
 ```
 {
     "username":"admin",
@@ -22,7 +22,7 @@ Header Authorization: Bearer token
 ```
 
 * 发送短信验证码  
-/auth/sendSms 请求方式: POST
+/auth/sendSms 请求方式 POST
 ```
 {
     "username":"admin",
@@ -34,6 +34,102 @@ Header Authorization: Bearer token
 Http Status Code : 200
 ```
 
+* 用户注册  
+/auth/registration 请求方式 POST
+```
+{
+    "username": "admin",
+    "password": "",
+    "mobile": "13888888888",
+    "realName": "张三",
+    "validateCode": "123456"
+}
+```
+返回
+```
+{
+    "id": "887de78680084e4a97da2ca0108e9a22",
+    "changeVersion": 0,
+    "createdBy": "SYSTEM",
+    "createdDate": 1740319938000,
+    "lastModifiedBy": "887de78680084e4a97da2ca0108e9a22",
+    "lastModifiedDate": 1742750747000,
+    "username": "admin1",
+    "password": "",
+    "mobile": "+1-2705515112",
+    "status": true,
+    "roles": [
+        "ROLE_USER",
+        "ROLE_ADMIN",
+        "ROLE_BBH"
+    ],
+    "comboId": "b2455f95054341609b6652a5c250fc89",
+    "comboName": "Internationality",
+    "expireTime": 1742494948000,
+    "userType": "4",
+    "realName": "Audi Vito",
+    "remark": "Administrator",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false,
+    "clientOnline": false,
+    "serverOnline": false,
+    "combo": {
+        "id": "b2455f95054341609b6652a5c250fc89",
+        "comboName": "Internationality",
+        "comboContent": "USB国内+USB国际+DOIP国内+DOIP国际+SoftEther VPN国际+SoftEther VPN国内+全球加速",
+        "comboPrice": "355欧元含税",
+        "comboValidity": "365",
+        "comboItems": [
+            {
+                "id": "7e09c882b44e43be8ad40469b912fb80",
+                "itemName": "USB国内",
+                "areaType": 1,
+                "itemSort": 1
+            },
+            {
+                "id": "58796971fcd54ddcbc72d9622a88d3cb",
+                "itemName": "USB国际",
+                "areaType": 2,
+                "itemSort": 2
+            },
+            {
+                "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
+                "itemName": "DOIP国内",
+                "areaType": 1,
+                "itemSort": 3
+            },
+            {
+                "id": "da3a0e809fdb484ebac057559972da26",
+                "itemName": "DOIP国际",
+                "areaType": 2,
+                "itemSort": 4
+            },
+            {
+                "id": "f46b1c8434fd48e9b97568154762f79b",
+                "itemName": "SoftEther VPN国内",
+                "areaType": 1,
+                "itemSort": 5
+            },
+            {
+                "id": "6d99e06fe47d4414a5f7ee1907fb6f1a",
+                "itemName": "SoftEther VPN国际",
+                "areaType": 2,
+                "itemSort": 6
+            },
+            {
+                "id": "12c890670f214ce09d363ac7c642d624",
+                "itemName": "全球加速",
+                "areaType": 2,
+                "itemSort": 7
+            }
+        ]
+    },
+    "connectType": "",
+    "connectIp": "",
+    "connectPort": ""
+}
+```
+
 * 个人信息  
 /user/profile 请求方式 GET  
 返回
@@ -43,16 +139,81 @@ Http Status Code : 200
     "changeVersion": 0,
     "createdBy": "SYSTEM",
     "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
+    "lastModifiedBy": "887de78680084e4a97da2ca0108e9a22",
+    "lastModifiedDate": 1742750747000,
+    "username": "admin1",
     "password": "",
-    "mobile": "13888888888",
+    "mobile": "+1-2705515112",
     "status": true,
     "roles": [
+        "ROLE_USER",
         "ROLE_ADMIN",
-        "ROLE_USER"
-    ]
+        "ROLE_BBH"
+    ],
+    "comboId": "b2455f95054341609b6652a5c250fc89",
+    "comboName": "Internationality",
+    "expireTime": 1742494948000,
+    "userType": "4",
+    "realName": "Audi Vito",
+    "remark": "Administrator",
+    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "online": false,
+    "clientOnline": false,
+    "serverOnline": false,
+    "combo": {
+        "id": "b2455f95054341609b6652a5c250fc89",
+        "comboName": "Internationality",
+        "comboContent": "USB国内+USB国际+DOIP国内+DOIP国际+SoftEther VPN国际+SoftEther VPN国内+全球加速",
+        "comboPrice": "355欧元含税",
+        "comboValidity": "365",
+        "comboItems": [
+            {
+                "id": "7e09c882b44e43be8ad40469b912fb80",
+                "itemName": "USB国内",
+                "areaType": 1,
+                "itemSort": 1
+            },
+            {
+                "id": "58796971fcd54ddcbc72d9622a88d3cb",
+                "itemName": "USB国际",
+                "areaType": 2,
+                "itemSort": 2
+            },
+            {
+                "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
+                "itemName": "DOIP国内",
+                "areaType": 1,
+                "itemSort": 3
+            },
+            {
+                "id": "da3a0e809fdb484ebac057559972da26",
+                "itemName": "DOIP国际",
+                "areaType": 2,
+                "itemSort": 4
+            },
+            {
+                "id": "f46b1c8434fd48e9b97568154762f79b",
+                "itemName": "SoftEther VPN国内",
+                "areaType": 1,
+                "itemSort": 5
+            },
+            {
+                "id": "6d99e06fe47d4414a5f7ee1907fb6f1a",
+                "itemName": "SoftEther VPN国际",
+                "areaType": 2,
+                "itemSort": 6
+            },
+            {
+                "id": "12c890670f214ce09d363ac7c642d624",
+                "itemName": "全球加速",
+                "areaType": 2,
+                "itemSort": 7
+            }
+        ]
+    },
+    "connectType": "",
+    "connectIp": "",
+    "connectPort": ""
 }
 ```
 
