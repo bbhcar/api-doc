@@ -596,7 +596,7 @@ Http Status Code : 200
 }
 ```
 
-* 服务端获取客户端连接信息
+* 服务端获取客户端连接信息  
 /api/user/client-connection-infomation 请求方式 GET  
 返回
 ```
