@@ -1,5 +1,5 @@
 ## BBHCar 接口说明
-API 地址前缀: https://admin.bbhcar.top/api  
+API 地址前缀: https://bbhcar.top/api  
 除了登录接口和地址中带有/anonymous/的接口,其余所有接口需要在header添加
 ```
 Header Authorization: Bearer token  
