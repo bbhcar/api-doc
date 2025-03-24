@@ -562,7 +562,6 @@ Http Status Code : 200
 /api/user/report-client-connection-infomation 请求方式 PUT  
 ```
 {
-    "id": "887de78680084e4a97da2ca0108e9a22",
     "connectType": "USB",
     "connectIp": "111.23.3.90"
     "connectPort": "10420"
