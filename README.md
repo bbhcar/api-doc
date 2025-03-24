@@ -21,7 +21,7 @@ Header Authorization: Bearer token
 }
 ```
 
-* 发送短信验证码
+* 发送短信验证码  
 /auth/sendSms 请求方式: POST
 ```
 {
