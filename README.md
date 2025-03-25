@@ -1564,3 +1564,40 @@ Http Status Code : 200
 Http Status Code : 200
 ```
 
+* 获取服务器SoftHub列表  
+/api/program/server/12312312313131231/softether-hub 请求方式 GET
+返回
+```
+{
+    "result": {
+        "HubList": [
+            {
+                "CreatedTime_dt": "2025-03-25T13:35:43.646Z",
+                "Ex.Recv.BroadcastBytes_u64": 0,
+                "Ex.Recv.BroadcastCount_u64": 0,
+                "Ex.Recv.UnicastBytes_u64": 0,
+                "Ex.Recv.UnicastCount_u64": 0,
+                "Ex.Send.BroadcastBytes_u64": 0,
+                "Ex.Send.BroadcastCount_u64": 0,
+                "Ex.Send.UnicastBytes_u64": 0,
+                "Ex.Send.UnicastCount_u64": 0,
+                "HubName_str": "123",
+                "HubType_u32": 0,
+                "IsTrafficFilled_bool": true,
+                "LastCommTime_dt": "2025-03-25T13:35:43.645Z",
+                "LastLoginTime_dt": "2025-03-25T13:35:43.645Z",
+                "NumGroups_u32": 0,
+                "NumIpTables_u32": 0,
+                "NumLogin_u32": 0,
+                "NumMacTables_u32": 0,
+                "NumSessions_u32": 0,
+                "NumUsers_u32": 1,
+                "Online_bool": true
+            }
+        ]
+    },
+    "jsonrpc": "2.0",
+    "id": "rpc_call_id"
+}
+```
+
