@@ -1601,3 +1601,13 @@ Http Status Code : 200
 }
 ```
 
+* 给新的服务器上添加nps用户，根据用户的套餐和服务器是国内还是国际，或排除被禁用的用户  
+/api/program/server/nps/addServer 请求方式 POST  
+```
+{"id": "12314124daxwtwetxx"}
+```
+返回, 随着用户的增多，可能时间会变得更加久  
+```
+Http Status Code : 200
+```
+
