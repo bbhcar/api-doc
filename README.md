@@ -584,7 +584,7 @@ Http Status Code : 200
 ```
 
 * 心跳检测  
-/online/check?programId=&clientId=&clientType=&heartbeatType= 请求方式 GET
+/online/check?programId=&clientId=&clientType=&heartbeatType= 请求方式 GET  
 
 | 参数  | 说明                                             |
 |---|------------------------------------------------|
@@ -599,7 +599,7 @@ Http Status Code : 200
 # 如果结果为 offline 则客户端立即下线
 ```
 * 查询客户端在线状态  
-/online/client-status?programId=  
+/online/client-status?programId= 请求方式 GET    
 返回
 ```
 {"onlineStatus": "online"}
