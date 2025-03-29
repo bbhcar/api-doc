@@ -406,6 +406,47 @@ Http Status Code : 200
     }
 }
 ```
+
+* 获取服务器列表(BBHCar)使用  
+/program/server/getServerList?areaType=1&pageNo=1&pageSize=20 请求方式 GET areaType 1 = 国内 2 = 国际  
+返回
+```
+{
+    "data": [
+        {
+            "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
+            "changeVersion": 0,
+            "createdBy": "SYSTEM",
+            "createdDate": 1740388231000,
+            "lastModifiedBy": "SYSTEM",
+            "lastModifiedDate": 1740388263000,
+            "serverAddr": "加密",
+            "serverPort": "加密",
+            "serverName": "国内上海服务器1",
+            "serverRoot": "加密",
+            "serverPassword": "加密",
+            "areaDesc": "国内-上海",
+            "areaType": 1
+        }
+    ],
+    "paging": {
+        "firstPage": 1,
+        "lastPage": 1,
+        "nextPage": 0,
+        "prevPage": 0,
+        "currentPage": 1,
+        "totalPage": 1,
+        "rowCount": 1,
+        "pageSize": 20,
+        "hasNext": false,
+        "hasPrev": false,
+        "hasFirst": true,
+        "hasLast": true,
+        "startOffset": 0
+    }
+}
+```
+
 * 获取服务器详细信息  
 /program/server/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
 返回
@@ -569,30 +610,7 @@ Http Status Code : 200
 ```
 返回
 ```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false
-}
+Http Status Code : 200
 ```
 
 * 服务端获取客户端连接信息  
