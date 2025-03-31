@@ -1,62 +1,52 @@
-## BBHCar 接口说明
-API 地址前缀: https://bbhcar.top/api  
+BBH Software 软件接口
+
+API 地址前缀: https://www.bbhcar.top/api
+
 除了登录接口和地址中带有/anonymous/的接口,其余所有接口需要在header添加
+
 ```
 Header Authorization: Bearer token  
 #token 为登录接口返回的 token
 ```
 
-* 登录接口  
-/auth/token 请求方式 POST  
+- 登录接口
+  /auth/token 请求方式: POST, Body  输入用户名密码
+
 ```
 {
     "username":"admin",
     "password":"P@ssw0rd"
 }
 ```
+
 返回
+
 ```
 {
     "token": "eyJhbGciOiJIUzUxMiJ9.eyJodHRwczovL2JiaGNhci5jb20vY2xhaW0vcm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJodHRwczovL3ZhZ3Rvb2xzLmNvbS9jbGFpbS9tb2JpbGUiOiIxMzg4ODg4ODg4OCIsImh0dHBzOi8vYmJoY2FyLmNvbS9jbGFpbS9lbmFibGVkIjp0cnVlLCJodHRwczovL2JiaGNhci5jb20vY2xhaW0vdXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTc0MDkyNTQ0OCwiaHR0cHM6Ly9iYmhjYXIuY29tL2NsYWltL2NyZWF0ZWQiOjE3NDAzMjA2NDg3MTksImh0dHBzOi8vYmJoY2FyLmNvbS9jbGFpbS91c2VySWQiOiI4ODdkZTc4NjgwMDg0ZTRhOTdkYTJjYTAxMDhlOWEyMiJ9.zLP0zLYlDjyngn5qFGbl16mYAb43-oVA_TyT0rs6od-EIZp5moQ0UmdCrslMIGPxfCh_vAMCLVDbefZ6B-8Qhw"
 }
 ```
 
-* 发送短信验证码  
-/auth/sendSms 请求方式 POST
-```
-{
-    "username":"admin",
-    "mobile":"+86-13991306319"
-}
-```
-返回
-```
-Http Status Code : 200
-```
+![1](https://github.com/user-attachments/assets/80cd5b63-2e64-48ed-b20f-5fb5fe89da00)
 
-* 用户注册  
-/auth/registration 请求方式 POST
+登录过程中第2个接口，获取用户信息，和判断用户是否有BBH权限：
+
+user/profile GET请求
+
+Authorization - Bearer Token == “登录时候的token”
+
 ```
+返回：
 {
+    "id": "147cda6eeba34345ba1d8aaf5bda5a47",
+    "changeVersion": 0,
+    "createdBy": "887de78680084e4a97da2ca0108e9a22",
+    "createdDate": 1742921396000,
+    "lastModifiedBy": "887de78680084e4a97da2ca0108e9a22",
+    "lastModifiedDate": 1742922845000,
     "username": "admin",
     "password": "",
-    "mobile": "13888888888",
-    "realName": "张三",
-    "validateCode": "123456"
-}
-```
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "887de78680084e4a97da2ca0108e9a22",
-    "lastModifiedDate": 1742750747000,
-    "username": "admin1",
-    "password": "",
-    "mobile": "+1-2705515112",
+    "mobile": "+1-2705515111",
     "status": true,
     "roles": [
         "ROLE_USER",
@@ -65,11 +55,11 @@ Http Status Code : 200
     ],
     "comboId": "b2455f95054341609b6652a5c250fc89",
     "comboName": "Internationality",
-    "expireTime": 1742494948000,
+    "expireTime": 4082457600000,
     "userType": "4",
-    "realName": "Audi Vito",
-    "remark": "Administrator",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
+    "realName": "刘书宝",
+    "remark": "Audi Vito",
+    "port": "vWpI58fj3hIPvmUUazwqLiWjOX+sADiTyY41WCmrdyZ1wlIuYRRKjb+bnXT9HW5XySLXoIxSSGn3pGEWbFj+dM0Tk+83MzeeHadpzagQ/ojTgF9Gpi2B1yUnse264beIczgZv+tF14F2nuh1b+rlAywZ3sd+XivLgi1eqfFIYj654V8Yufjrvz6vu6ym8bXuj2PHDJjymHrjod2VHIBYXcrnNQYIa/46X2ONJ5S3n0E=",
     "online": false,
     "clientOnline": false,
     "serverOnline": false,
@@ -85,88 +75,92 @@ Http Status Code : 200
                 "itemName": "USB国内",
                 "areaType": 1,
                 "itemSort": 1
-            },
-            {
-                "id": "58796971fcd54ddcbc72d9622a88d3cb",
-                "itemName": "USB国际",
-                "areaType": 2,
-                "itemSort": 2
-            },
-            {
-                "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
-                "itemName": "DOIP国内",
-                "areaType": 1,
-                "itemSort": 3
-            },
-            {
-                "id": "da3a0e809fdb484ebac057559972da26",
-                "itemName": "DOIP国际",
-                "areaType": 2,
-                "itemSort": 4
-            },
-            {
-                "id": "f46b1c8434fd48e9b97568154762f79b",
-                "itemName": "SoftEther VPN国内",
-                "areaType": 1,
-                "itemSort": 5
-            },
-            {
-                "id": "6d99e06fe47d4414a5f7ee1907fb6f1a",
-                "itemName": "SoftEther VPN国际",
-                "areaType": 2,
-                "itemSort": 6
-            },
-            {
-                "id": "12c890670f214ce09d363ac7c642d624",
-                "itemName": "全球加速",
-                "areaType": 2,
-                "itemSort": 7
             }
         ]
     },
-    "connectType": "",
-    "connectIp": "",
-    "connectPort": ""
+    "connectType": "USB",
+    "connectIp": "47.122.127.90",
+    "connectPort": "12345"
 }
 ```
 
-* 个人信息  
-/user/profile 请求方式 GET  
-返回
+判定其中：
+
+"roles": [
+        "ROLE_BBH" 如果有则可以登录，如果没有则提示“当前用户无权限”
+
+取其中信息显示到软件中：
+
+ "comboName": "Internationality", 用户权限（套餐）
+
+ "username": "admin", 用户名称
+
+ "expireTime": 4082457600000, 到期时间（需要对时间戳进行转换明文）
+ 
+ 
+![2](https://github.com/user-attachments/assets/42bec69d-2a6a-40f7-8043-813622b7ea8a)
+
+此处为用户登录完的第一界面，如果在此界面没有操作超过60秒，则自动关闭软件。
+
+此处点击客户端调用接口获取服务器列表：
+
+  /program/server/getServerList?areaType=1&pageNo=1&pageSize=20 国内
+
+  /program/server/getServerList?areaType=2&pageNo=1&pageSize=20 国际
+
+Authorization - Bearer Token == “登录时候的token”
+
+请求方式 GET areaType 1 = 国内 2 = 国际  （此处可以通过用户列表判断"areaType": 为1还是为2,还是都有）
+
+如果只有1 则请求国内，如果只有2则请求国际，如果同时有1和2，则请求国内和国际。
+
+返回：例如国内：
+
 ```
 {
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "887de78680084e4a97da2ca0108e9a22",
-    "lastModifiedDate": 1742750747000,
-    "username": "admin1",
-    "password": "",
-    "mobile": "+1-2705515112",
-    "status": true,
-    "roles": [
-        "ROLE_USER",
-        "ROLE_ADMIN",
-        "ROLE_BBH"
+    "data": [
+        {
+            "id": "e9b40d63c3c142f6a940e1c4c96773d0",
+            "changeVersion": 0,
+            "createdBy": "admin1",
+            "createdDate": 1742747172000,
+            "lastModifiedBy": "admin1",
+            "lastModifiedDate": 1742747172000,
+            "serverAddr": "47.122.127.90",
+            "domain": "ccn.bbhcar.com",
+            "serverName": "Central China",
+            "areaDesc": "华中-武汉",
+            "areaType": 1
+        }
     ],
-    "comboId": "b2455f95054341609b6652a5c250fc89",
-    "comboName": "Internationality",
-    "expireTime": 1742494948000,
-    "userType": "4",
-    "realName": "Audi Vito",
-    "remark": "Administrator",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false,
-    "clientOnline": false,
-    "serverOnline": false,
-    "combo": {
-        "id": "b2455f95054341609b6652a5c250fc89",
-        "comboName": "Internationality",
-        "comboContent": "USB国内+USB国际+DOIP国内+DOIP国际+SoftEther VPN国际+SoftEther VPN国内+全球加速",
-        "comboPrice": "355欧元含税",
-        "comboValidity": "365",
-        "comboItems": [
+    "paging": {
+        "firstPage": 1,
+        "lastPage": 1,
+        "nextPage": 0,
+        "prevPage": 0,
+        "currentPage": 1,
+        "totalPage": 1,
+        "rowCount": 5,
+        "pageSize": 20,
+        "hasNext": false,
+        "hasPrev": false,
+        "hasFirst": true,
+        "hasLast": true,
+        "startOffset": 0
+    }
+}
+```
+
+![3](https://github.com/user-attachments/assets/51d26dbd-d2d1-40c2-a503-d1b2c4c6daf1)
+
+服务器的下拉菜单，取返回值，平通知Ping IP或域名，ping1次然后把延迟返回到列表，默认延迟最低到列表，用户可以自己选择 或点击刷新查看最新延迟状态，如果软件为中文界面则取"areaDesc": 内容，如果英文界面则取"serverName": 显示到列表当中，在后面显示延迟。
+
+用户选择好服务器后点击USB或DOIP或Soft，用户是否有权限点击对应按钮，权限判定如下：
+
+重点：判定用户的角色规则--取comboItems套餐列表中的ID判断用户权限和客户端列表允许点击
+
+```
+"comboItems": [
             {
                 "id": "7e09c882b44e43be8ad40469b912fb80",
                 "itemName": "USB国内",
@@ -174,382 +168,174 @@ Http Status Code : 200
                 "itemSort": 1
             },
             {
-                "id": "58796971fcd54ddcbc72d9622a88d3cb",
-                "itemName": "USB国际",
-                "areaType": 2,
-                "itemSort": 2
-            },
-            {
-                "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
-                "itemName": "DOIP国内",
-                "areaType": 1,
-                "itemSort": 3
-            },
-            {
-                "id": "da3a0e809fdb484ebac057559972da26",
-                "itemName": "DOIP国际",
-                "areaType": 2,
-                "itemSort": 4
-            },
-            {
-                "id": "f46b1c8434fd48e9b97568154762f79b",
-                "itemName": "SoftEther VPN国内",
-                "areaType": 1,
-                "itemSort": 5
-            },
-            {
-                "id": "6d99e06fe47d4414a5f7ee1907fb6f1a",
-                "itemName": "SoftEther VPN国际",
-                "areaType": 2,
-                "itemSort": 6
-            },
-            {
                 "id": "12c890670f214ce09d363ac7c642d624",
                 "itemName": "全球加速",
                 "areaType": 2,
                 "itemSort": 7
             }
-        ]
-    },
-    "connectType": "",
-    "connectIp": "",
-    "connectPort": ""
-}
 ```
 
-* 修改密码 (用户修改自己的密码)  
-/api/user/change-password 请求方式 PUT
-```
-{
-    "oldPassword": "P@ssw0rd",
-    "newPassword": "P@ssw0rd1"
-}
-```
-返回
-```
-Http Status Code : 200
-```
+ "areaType": 1, 为国内  ； "areaType": 2, 为国际
 
-* 工具箱列表  
-/toolbox/getToolBoxListByToolTypeAndUserType?keyword=b&toolType=USB&userType=1&pageNo=1&pageSize=20 请求方式 GET  
-返回
-```
-{
-    "data": [
-        {
-            "id": "DA95751CE7E1448FAF60A1FFD8BBE037",
-            "changeVersion": 0,
-            "createdBy": "SYSTEM",
-            "createdDate": 1740366766000,
-            "toolName": "bbhdesk",
-            "toolIcon": "https://ffdkajfldsdjf",
-            "toolUrl": "https://ffdkajfldsdjf",
-            "toolSort": 1,
-            "toolType": "USB",
-            "userType": 1,
-            "toolDesc": "BBHDesc 是远程控制工具"
-        },
-        {
-            "id": "c0beafa5939f4105b60d3d304f81e4ba",
-            "changeVersion": 0,
-            "createdBy": "admin",
-            "createdDate": 1740379225000,
-            "lastModifiedBy": "admin",
-            "lastModifiedDate": 1740379225000,
-            "toolName": "bbhdesk1",
-            "toolIcon": "https://ffdkajfldsdjf.com",
-            "toolUrl": "https://ffdkajfldsdjf.com",
-            "toolSort": 2,
-            "toolType": "USB",
-            "userType": 1,
-            "toolDesc": "BBHDesc2 是远程控制工具"
-        }
-    ],
-    "paging": {
-        "firstPage": 1,
-        "lastPage": 1,
-        "nextPage": 0,
-        "prevPage": 0,
-        "currentPage": 1,
-        "totalPage": 1,
-        "rowCount": 2,
-        "pageSize": 20,
-        "hasNext": false,
-        "hasPrev": false,
-        "hasFirst": true,
-        "hasLast": true,
-        "startOffset": 0
-    }
-}
-```
-* 查看/下载 工具  
-/toolbox/DA95751CE7E1448FAF60A1FFD8BBE037 请求方式 GET   
-返回
-```
-{
-    "id": "DA95751CE7E1448FAF60A1FFD8BBE037",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740366766000,
-    "toolName": "bbhdesk",
-    "toolIcon": "https://ffdkajfldsdjf",
-    "toolUrl": "https://ffdkajfldsdjf",
-    "toolSort": "1",
-    "toolType": "USB",
-    "userType": 1,
-    "toolDesc": "BBHDesc 是远程控制工具"
-}
-```
-* 添加工具  
-/toolbox/addToolBox 请求方式 POST
-```
-{
-    "toolName": "bbhdesk2",
-    "toolIcon": "https://ffdkajfldsdjf.com",
-    "toolUrl": "https://ffdkajfldsdjf.com",
-    "toolSort": 2,
-    "toolType": "USB",
-    "userType": 1,
-    "toolDesc": "BBHDesc2 是远程控制工具"
-}
-```
-返回
-```
-{
-    "id": "c0beafa5939f4105b60d3d304f81e4ba",
-    "createdBy": "admin",
-    "createdDate": 1740379224651,
-    "lastModifiedBy": "admin",
-    "lastModifiedDate": 1740379224651,
-    "toolName": "bbhdesk2",
-    "toolIcon": "https://ffdkajfldsdjf.com",
-    "toolUrl": "https://ffdkajfldsdjf.com",
-    "toolSort": 2,
-    "toolType": "USB",
-    "userType": 1,
-    "toolDesc": "BBHDesc2 是远程控制工具"
-}
-```
-* 修改工具  
-/toolbox/editToolBox 请求方式 PUT
-```
-{
-    "id": "c0beafa5939f4105b60d3d304f81e4ba",
-    "toolName": "bbhdesk3",
-    "toolIcon": "https://ffdkajfldsdjf.com",
-    "toolUrl": "https://ffdkajfldsdjf.com",
-    "toolSort": 2,
-    "toolType": "USB",
-    "userType": 1,
-    "toolDesc": "BBHDesc3 是远程控制工具"
-}
-```
-返回
-```
-{
-    "id": "c0beafa5939f4105b60d3d304f81e4ba",
-    "createdBy": "admin",
-    "createdDate": 1740379224651,
-    "lastModifiedBy": "admin",
-    "lastModifiedDate": 1740379224651,
-    "toolName": "bbhdesk3",
-    "toolIcon": "https://ffdkajfldsdjf.com",
-    "toolUrl": "https://ffdkajfldsdjf.com",
-    "toolSort": 2,
-    "toolType": "USB",
-    "userType": 1,
-    "toolDesc": "BBHDesc3 是远程控制工具"
-}
-```
-* 删除工具  
-/toolbox/deleteToolBox/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE   
-返回
-```
-Http Status Code : 200
-```
-* 获取服务器列表  
-/program/server/getServerListByAreaType?areaType=1&pageNo=1&pageSize=20 请求方式 GET areaType 1 = 国内 2 = 国际  
-返回
-```
-{
-    "data": [
-        {
-            "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
-            "changeVersion": 0,
-            "createdBy": "SYSTEM",
-            "createdDate": 1740388231000,
-            "lastModifiedBy": "SYSTEM",
-            "lastModifiedDate": 1740388263000,
-            "serverAddr": "1.1.1.1",
-            "serverPort": "22",
-            "serverName": "国内上海服务器1",
-            "serverRoot": "root",
-            "serverPassword": "password",
-            "areaDesc": "国内-上海",
-            "areaType": 1
-        }
-    ],
-    "paging": {
-        "firstPage": 1,
-        "lastPage": 1,
-        "nextPage": 0,
-        "prevPage": 0,
-        "currentPage": 1,
-        "totalPage": 1,
-        "rowCount": 1,
-        "pageSize": 20,
-        "hasNext": false,
-        "hasPrev": false,
-        "hasFirst": true,
-        "hasLast": true,
-        "startOffset": 0
-    }
-}
-```
+若只有一个ID  "id": "7e09c882b44e43be8ad40469b912fb80", 则用户只能点击USB按钮，ID写死在软件中判断用。
 
-* 获取服务器列表(BBHCar)使用  
-/program/server/getServerList?areaType=1&pageNo=1&pageSize=20 请求方式 GET areaType 1 = 国内 2 = 国际  
-返回
-```
-{
-    "data": [
-        {
-            "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
-            "changeVersion": 0,
-            "createdBy": "SYSTEM",
-            "createdDate": 1740388231000,
-            "lastModifiedBy": "SYSTEM",
-            "lastModifiedDate": 1740388263000,
-            "serverAddr": "加密",
-            "serverPort": "加密",
-            "serverName": "国内上海服务器1",
-            "serverRoot": "加密",
-            "serverPassword": "加密",
-            "areaDesc": "国内-上海",
-            "areaType": 1
-        }
-    ],
-    "paging": {
-        "firstPage": 1,
-        "lastPage": 1,
-        "nextPage": 0,
-        "prevPage": 0,
-        "currentPage": 1,
-        "totalPage": 1,
-        "rowCount": 1,
-        "pageSize": 20,
-        "hasNext": false,
-        "hasPrev": false,
-        "hasFirst": true,
-        "hasLast": true,
-        "startOffset": 0
-    }
-}
-```
-
-* 获取服务器详细信息  
-/program/server/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
-返回
-```
-{
-    "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740388231000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740388263000,
-    "serverAddr": "1.1.1.1",
-    "serverPort": "22",
-    "serverName": "国内上海服务器1",
-    "serverRoot": "root",
-    "serverPassword": "password",
-    "areaDesc": "国内-上海",
-    "areaType": 1
-}
-```
-* 添加服务器  
-/program/server/addServer 请求方式 POST
-```
-{
-    "serverAddr": "1.1.1.1",
-    "serverPort": "22",
-    "serverName": "国内上海服务器1",
-    "serverRoot": "root",
-    "serverPassword": "password",
-    "areaDesc": "国内-上海",
-    "areaType": 1
-}
-```
-返回
-```
-{
-    "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740388231000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740388263000,
-    "serverAddr": "1.1.1.1",
-    "serverPort": "22",
-    "serverName": "国内上海服务器1",
-    "serverRoot": "root",
-    "serverPassword": "password",
-    "areaDesc": "国内-上海",
-    "areaType": 1
-}
-```
-* 修改服务器  
-/program/server/editServer 请求方式 PUT
-```
-{
-    "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
-    "serverAddr": "1.1.1.1",
-    "serverPort": "22",
-    "serverName": "国内上海服务器1",
-    "serverRoot": "root",
-    "serverPassword": "password",
-    "areaDesc": "国内-上海",
-    "areaType": 1
-}
-```
-返回
-```
-{
-    "id": "9f2602a9d7dc4fd5bc3bedc42ada930d",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740388231000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740388263000,
-    "serverAddr": "1.1.1.1",
-    "serverPort": "22",
-    "serverName": "国内上海服务器1",
-    "serverRoot": "root",
-    "serverPassword": "password",
-    "areaDesc": "国内-上海",
-    "areaType": 1
-}
-```
-* 删除服务器  
-/program/server/deleteServer/c0beafa5939f4105b60d3d304f81e4ba 请求方式 DELETE  
-返回
-```
-Http Status Code : 200
-```
-
-* 重启服务器  
-/api/program/server/rebootServer 请求方式 PUT
-```
-["9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d","9f2602a9d7dc4fd5bc3bedc42ada930d"]
-```
-返回
-```
-Http Status Code : 200
-```
+其中id": "12c890670f214ce09d363ac7c642d624为全球加速，后面会标记用途。（服务端位置）
 
 
-* 查看公告  
-/program/announcement 请求方式 GET  
+
+以下为三个客户端按钮的上报，逻辑通用。
+
+- 上报客户端连接信息
+  user/report-client-connection-infomation 请求方式 PUT
+
+- Authorization - Bearer Token == “登录时候的token”
+
+  请求：
+
+  ```
+  {
+      "connectType": "USB", //此处若客户点击USB则上报USB，  有三个USB或DOIP或SOFT
+      "connectIp": "111.23.3.90",  //此处为客户端选择的服务器IP 也可以是域名
+      "connectPort": "NPS" 
+  }
+  ```
+
+      "connectPort": 说明
+      //此处为按钮选择，如果usb中则显示连接为nps 其余为frp p2p vpn
+      //如果doip下，连接为nps 其余为frp p2p 
+      //如果soft下，连接为bridge
+
+  返回：200状态
+
+  
+
+  以下为心跳检测功能，设定心跳上报时间为30秒/次。此处是在点击客户端或服务端时候选择心跳上报
+
+  - 心跳检测
+    https://www.bbhcar.top/api/online/check?clientId=&clientType=&heartbeatType= 请求方式 GET
+
+  | 参数          | 说明                                                         |
+  | ------------- | ------------------------------------------------------------ |
+  | programId     | 应用ID 固定0acc1e73b1ce474db7c2b74a7d1d04af                  |
+  | clientId      | 客户端ID，需要生成一个UUID 去除掉-之后的字符串，在同一个检测心跳的流程中应该保持不变 |
+  | clientType    | 客户端类型，客户端 S 服务端 C                                |
+  | heartbeatType | 心跳类型，登录 LOGIN， 保持 KEEPALIVE                        |
+
+  返回
+
+  ```
+  {"onlineStatus": "online"}
+  # 如果结果为 offline 则客户端立即下线
+  ```
+
+  heartbeatType第一次发要LIGIN然后保持KEEPALIVE。如果超过30秒不上报，则自动离线或异地登录检测。
+
+
+  
+![4](https://github.com/user-attachments/assets/01f29b91-6272-40f3-af47-4d96d384397d)
+
+  以下是服务端接口信息：同时按照心跳方式上报
+
+  /user/client-connection-infomation 
+
+  服务端获取客户端连接信息 请求方式GET
+
+  返回
+
+  ```
+  {
+      "userId": "147cda6eeba34345ba1d8aaf5bda5a47",
+      "connectType": "USB",
+      "connectIp": "wcn.bbhcar.com",
+      "connectPort": "NPS",
+      "vpn": {
+          "id": "f5c77c00354749109035dcbad94f9c4d",
+          "changeVersion": 0,
+          "createdBy": "admin",
+          "createdDate": 1742494111000,
+          "lastModifiedBy": "admin1",
+          "lastModifiedDate": 1742786520000,
+          "vpnName": "West China",
+          "vpnType": 2,
+          "vpnIp": "47.108.67.36",
+          "vpnIPSec": "aoiV6AkVArlu/Srl4WkYsw==",
+          "username": "/EIel1vx25MVX5JCwKej6A==",
+          "password": "1qnc7c/XPO57PvnVlEAA4sBI8x8eF9ycBs0Ev/wcKuWGBUMsTloLHU1ge9W1ba+frM1Hxze/n68lofu8knBhmQ==",
+          "vpnDesc": "华西-成都"
+      }
+  }
+  ```
+
+  ```
+      取信息如下
+      "connectType": "USB",  //连接
+      "connectIp": "wcn.bbhcar.com", //服务器
+      "connectPort": "NPS"  //端到端
+      
+      //服务器：
+      "vpnName": "West China",  //英文界面取
+      "vpnDesc": "华西-成都"  //中文界面取
+      
+      如果点击全球加速：（此处信息为加密，需要特定方式解密）
+      "vpnIPSec": "aoiV6AkVArlu/Srl4WkYsw==",
+      "username": "/EIel1vx25MVX5JCwKej6A==",
+      "password": "1qnc7c/XPO57PvnVlEAA4sBI8x8eF9ycBs0Ev/wcKuWGBUMsTloLHU1ge9W1ba+frM1Hxze/n68lofu8knBhmQ==",
+      
+  ```
+
+  查询客户端在线状态--此处在点进服务端端时候，和心跳一起上报和请求
+
+  /online/client-status?programId= 
+
+  GET请求
+
+  Authorization - Bearer Token == “登录时候的token”    //返回：Online为在线
+
+  ```
+  {
+      "onlineStatus": "offline"
+  }
+  ```
+
+
+
+ 工具箱获取接口：
+ 
+![5](https://github.com/user-attachments/assets/19161655-2a94-4c50-be50-2a3e6e57a38c)
+
+- 工具箱列表
+  /toolbox/getToolBoxListByToolTypeAndUserType?keyword=b&toolType=USB&userType=1&pageNo=1&pageSize=20 请求方式 GET
+
+- user_type 免费套餐1   //此处请求判定用户套餐是否为Free和Test 只查免费套餐  其余为空
+
+- toolType 分为四种 USB ，DOIP ，SOFT ，SERVER
+
+- 返回
+
+- ```
+  {
+      "data": [
+          {
+              "id": "DA95751CE7E1448FAF60A1FFD8BBE037",
+              "changeVersion": 0,
+              "createdBy": "SYSTEM",
+              "createdDate": 1740366766000,
+              "toolName": "bbhdesk",  //工具名称
+              "toolIcon": "https://ffdkajfldsdjf",  //工具图标
+              "toolUrl": "https://ffdkajfldsdjf",  //工具下载链接
+              "toolSort": 1,
+              "toolType": "USB",  //工具分类
+              "userType": 1,      //用户套餐
+              "toolDesc": "BBHDesc 是远程控制工具"
+          },
+  ```
+
+  依照用户选择的工具进行对应的查询
+
+`
+
+  查看公告
+/program/announcement 请求方式 GET
 返回
 ```
 {
@@ -557,1082 +343,10 @@ Http Status Code : 200
     "changeVersion": 0,
     "createdBy": "SYSTEM",
     "createdDate": 1740408778000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740408778000,
-    "announcementCn": "大家好",
-    "announcementEn": "hello"
-}
-```
-
-* 修改公告  
-/program/announcement/settings 请求方式 PUT
-```
-{
-    "announcementCn": "大家好,我是谁",
-    "announcementEn": "hello,Who am i"
-}
-```
-返回
-```
-{
-    "id": "070a1b10a5ef4ef6aa478b7cc603bd68",
     "lastModifiedBy": "admin",
-    "lastModifiedDate": 1740410927768,
-    "announcementCn": "大家好,我是谁",
-    "announcementEn": "hello,Who am i"
+    "lastModifiedDate": 1741456428000,
+    "announcementCn": "感谢使用BBH共享工具\n官方网站:www.bbhcar.com\n软件支持USB、DOIP等以太网端口的共享实现跨地区诊断用户车辆\n\n--当前版本v5.1.0 更新说明：\n· 升级DOIP模式的车辆连接读取VIN错误",
+    "announcementEn": "Thanks for using BBH sharing tool\nOfficial website: www.bbhcar.com\nThe software supports sharing of Ethernet ports such as USB and DOIP to diagnose users' vehicles across regions\n\n--Current version v5.1.0 Update Notes:\n· Upgrade DOIP mode vehicle connection reading VIN error"
 }
 ```
-
-* 心跳检测  
-/online/check?programId=&clientId=&clientType=&heartbeatType= 请求方式 GET  
-
-| 参数  | 说明                                             |
-|---|------------------------------------------------|
-| programId | 应用ID                                           |
-| clientId | 客户端ID，需要生成一个UUID 去除掉-之后的字符串，在同一个检测心跳的流程中应该保持不变 |
-| clientType | 客户端类型，客户端 S 服务端 C                              |
-| heartbeatType | 心跳类型，登录 LOGIN， 保持 KEEPALIVE                    |
-
-返回
-```
-{"onlineStatus": "online"}
-# 如果结果为 offline 则客户端立即下线
-```
-* 查询客户端在线状态  
-/online/client-status?programId= 请求方式 GET    
-返回
-```
-{"onlineStatus": "online"}
-# 如果结果为 offline 则客户端立即下线
-```
-
-* 上报客户端连接信息  
-/api/user/report-client-connection-infomation 请求方式 PUT  
-```
-{
-    "connectType": "USB",
-    "connectIp": "111.23.3.90"
-    "connectPort": "10420"
-}
-```
-返回
-```
-Http Status Code : 200
-```
-
-* 服务端获取客户端连接信息  
-/api/user/client-connection-infomation 请求方式 GET  
-返回
-```
-{
-    "userId": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "connectType": "USB",
-    "connectIp": "111.23.3.90"
-    "connectPort": "10420",
-    "vpn": {
-        "id": "ff82fd68493b4f609eae87450d949525",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1742130331000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1742130331000,
-        "vpnName": "11111",
-        "vpnType": 1,
-        "vpnIp": "",
-        "vpnIPSec": "加密",
-        "username": "加密",
-        "password": "加密",
-        "vpnDesc": "描述"
-    }
-}
-```
-
-
-* 匿名根据应用ID查询应用详情  
-/anonymous/program/9f2602a9d7dc4fd5bc3bedc42ada930d 请求方式 GET  
-返回
-```
-{
-    "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740908896000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740908896000,
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-
-* 匿名根据应用名称查询应用详情  
-/anonymous/program/name?programName= 请求方式 GET  
-返回
-```
-{
-    "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740908896000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740908896000,
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-
-* 应用列表  
-/program?keyword=&programStatus=&pageNo=1&pageSize=20 请求方式 GET  
-返回
-```
-{
-    "data": [
-    {
-        "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740908896000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740908896000,
-        "programName": "111",
-        "programVersion": "2321",
-        "programMD5": "313",
-        "programKey": "313",
-        "updateUrl": "321321",
-        "clientKeepalive": 30,
-        "serverKeepalive": 60,
-        "programStatus": 111,
-        "programDesc": "111"
-    }
-  ],
-  "paging": {
-      "firstPage": 1,
-      "lastPage": 1,
-      "nextPage": 0,
-      "prevPage": 0,
-      "currentPage": 1,
-      "totalPage": 1,
-      "rowCount": 1,
-      "pageSize": 20,
-      "hasNext": false,
-      "hasPrev": false,
-      "hasFirst": true,
-      "hasLast": true,
-      "startOffset": 0
-    }
-}
-```
-
-* 应用详情  
-/program/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 GET  
-返回
-```
-{
-    "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740908896000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740908896000,
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-
-* 添加应用  
-/program/addProgram 请求方式 POST
-```
-{
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-返回
-```
-{
-    "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740908896000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740908896000,
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-
-* 编辑应用  
-/program/editProgram 请求方式 PUT
-```
-{
-    "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740908896000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740908896000,
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-返回
-```
-{
-    "id": "0ce52ed49cfd44d6a14dced94a9645d7",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740908896000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740908896000,
-    "programName": "111",
-    "programVersion": "2321",
-    "programMD5": "313",
-    "programKey": "313",
-    "updateUrl": "321321",
-    "clientKeepalive": 30,
-    "serverKeepalive": 60,
-    "programStatus": 111,
-    "programDesc": "111"
-}
-```
-
-* 删除应用  
-/program/deleteProgram/0ce52ed49cfd44d6a14dced94a9645d7 请求方式 DELETE
-```
-Http Status Code : 200
-```
-
-* 套餐明细列表 (USB国内，USB国际，等等)  
-/combo/items 请求方式 GET
-```
-[
-    {
-        "id": "7e09c882b44e43be8ad40469b912fb80",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740924938000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740971010000,
-        "itemName": "USB国内",
-        "areaType": 1,
-        "itemSort": 1
-    },
-    {
-        "id": "58796971fcd54ddcbc72d9622a88d3cb",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740924938000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740971009000,
-        "itemName": "USB国际",
-        "areaType": 2,
-        "itemSort": 2
-    },
-    {
-        "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740924938000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740970840000,
-        "itemName": "DOIP国内",
-        "areaType": 1,
-        "itemSort": 3
-    },
-    {
-        "id": "da3a0e809fdb484ebac057559972da26",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740924938000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740970841000,
-        "itemName": "DOIP国际",
-        "areaType": 2,
-        "itemSort": 4
-    },
-    {
-        "id": "f46b1c8434fd48e9b97568154762f79b",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740924938000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740970844000,
-        "itemName": "SoftEther VPN国内",
-        "areaType": 1,
-        "itemSort": 5
-    },
-    {
-        "id": "6d99e06fe47d4414a5f7ee1907fb6f1a",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1740924938000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1740970848000,
-        "itemName": "SoftEther VPN国际",
-        "areaType": 2,
-        "itemSort": 6
-    }
-]
-```
-
-* 获取套餐列表  
-/combo?keyword=&pageNo=1&pageSize=20 请求方式 GET  
-返回
-```
-{
-    "data": [
-        {
-            "id": "57373bdd0fb94c489408eff5f9a3c949",
-            "changeVersion": 0,
-            "createdBy": "admin",
-            "createdDate": 1740988693000,
-            "lastModifiedBy": "admin",
-            "lastModifiedDate": 1740988693000,
-            "comboName": "free1",
-            "comboContent": "DOIP国内+DOIP国际",
-            "comboPrice": "200",
-            "comboValidity": "27"
-        },
-        {
-            "id": "faee49a8b7934480a0365bc99ee2c8e7",
-            "changeVersion": 0,
-            "createdBy": "SYSTEM",
-            "createdDate": 1740986714000,
-            "lastModifiedBy": "SYSTEM",
-            "lastModifiedDate": 1740986714000,
-            "comboName": "free",
-            "comboContent": "usb国内+usb国际",
-            "comboPrice": "100",
-            "comboValidity": "7"
-        }
-    ],
-    "paging": {
-        "firstPage": 1,
-        "lastPage": 1,
-        "nextPage": 0,
-        "prevPage": 0,
-        "currentPage": 1,
-        "totalPage": 1,
-        "rowCount": 2,
-        "pageSize": 20,
-        "hasNext": false,
-        "hasPrev": false,
-        "hasFirst": true,
-        "hasLast": true,
-        "startOffset": 0
-    }
-}
-```
-* 获取套餐详情  
-/combo/7e09c882b44e43be8ad40469b912fb80 请求方式 GET  
-返回
-```
-{
-    "id": "faee49a8b7934480a0365bc99ee2c8e7",
-    "comboName": "free",
-    "comboContent": "usb国内+usb国际",
-    "comboPrice": "100",
-    "comboValidity": "7",
-    "comboItems": [
-        {
-            "itemName": "USB国内",
-            "areaType": 1,
-            "itemSort": 1
-        },
-        {
-            "itemName": "USB国际",
-            "areaType": 2,
-            "itemSort": 2
-        }
-    ]
-}
-```
-
-* 添加套餐  
-/combo 请求方式 POST
-```
-{
-    "comboName": "free1",
-    "comboPrice": "200",
-    "comboValidity": "27",
-    "comboItems": [
-        { "id": "cb86b6b5f6e2464d8fe06b648800ecdb" },
-        { "id": "da3a0e809fdb484ebac057559972da26" }
-    ]
-}
-```
-返回
-```
-{
-    "id": "57373bdd0fb94c489408eff5f9a3c949",
-    "createdBy": "admin",
-    "createdDate": 1740988692999,
-    "lastModifiedBy": "admin",
-    "lastModifiedDate": 1740988692999,
-    "comboName": "free1",
-    "comboContent": "DOIP国内+DOIP国际",
-    "comboPrice": "200",
-    "comboValidity": "27",
-    "comboItems": [
-        {
-            "id": "cb86b6b5f6e2464d8fe06b648800ecdb",
-            "itemName": "DOIP国内"
-        },
-        {
-            "id": "da3a0e809fdb484ebac057559972da26",
-            "itemName": "DOIP国际"
-        }
-    ]
-}
-```
-
-* 编辑套餐  
-/combo 请求方式 PUT
-```
-{
-    "id": "57373bdd0fb94c489408eff5f9a3c949",
-    "comboName": "free2",
-    "comboPrice": "200",
-    "comboValidity": "27",
-    "comboItems": [
-        { "id": "f46b1c8434fd48e9b97568154762f79b" },
-        { "id": "da3a0e809fdb484ebac057559972da26" }
-    ]
-}
-```
-返回
-```
-{
-    "id": "57373bdd0fb94c489408eff5f9a3c949",
-    "lastModifiedBy": "admin",
-    "lastModifiedDate": 1740989001744,
-    "comboName": "free2",
-    "comboContent": "SoftEther VPN国内+DOIP国际",
-    "comboPrice": "200",
-    "comboValidity": "27",
-    "comboItems": [
-        {
-            "id": "f46b1c8434fd48e9b97568154762f79b",
-            "itemName": "SoftEther VPN国内"
-        },
-        {
-            "id": "da3a0e809fdb484ebac057559972da26",
-            "itemName": "DOIP国际"
-        }
-    ]
-}
-```
-
-* 删除套餐  
-/combo/faee49a8b7934480a0365bc99ee2c8e7 请求方式 DELETE
-```
-Http Status Code : 200
-```
-
-* 获取系统角色  
-/api/user/roles 请求方式 GET
-返回
-```
-[
-    {
-        "id": "38ddf55cd77255e7a43d275842c6a1ee",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1722413684000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1722414399000,
-        "roleName": "ROLE_FLASHDATEN",
-        "roleDesc": "固件用户"
-    },
-    {
-        "id": "71ddf58ae77145e7a43d275842c6a1cd",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1721046613000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1722414406000,
-        "roleName": "ROLE_USER",
-        "roleDesc": "普通用户"
-    },
-    {
-        "id": "31d170c9f85a43f2b06efdffa685b749",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1721920226000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1722764791000,
-        "roleName": "ROLE_ADMIN",
-        "roleDesc": "车型管理员"
-    },
-    {
-        "id": "a469c743524611ef9d7a0242ac110003",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1722764883000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1722764937000,
-        "roleName": "ROLE_DATASET",
-        "roleDesc": "参数管理员"
-    },
-    {
-        "id": "3930ac5de84b419982f6b58f8e2d4447",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1721046613000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1722764939000,
-        "roleName": "ROLE_SUPER",
-        "roleDesc": "超级管理员"
-    },
-    {
-        "id": "a469c743524611ef9d7a0242ac110004",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1725687060000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1725804190000,
-        "roleName": "ROLE_REPORT",
-        "roleDesc": "诊断报告"
-    },
-    {
-        "id": "82999d2bee3241f59e87b0d095acd3c0",
-        "changeVersion": 0,
-        "createdBy": "SYSTEM",
-        "createdDate": 1741329731000,
-        "lastModifiedBy": "SYSTEM",
-        "lastModifiedDate": 1741329731000,
-        "roleName": "ROLE_SFD1",
-        "roleDesc": "SFD1"
-    }
-]
-```
-
-* 管理员修改用户密码  
-/api/user/change-password-by-admin 请求方式 PUT
-```
-{
-    "userId": "887de78680084e4a97da2ca0108e9a22",
-    "newPassword": "P@ssw0rd1"
-}
-```
-返回
-```
-Http Status Code : 200
-```
-
-* 用户列表获取用户详情  
-/api/user/887de78680084e4a97da2ca0108e9a22 请求方式 GET  
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "$2a$10$sl76JLjQ.hyP6QPz7yxAbOrHrCSfUJ5BB8qbkjocrQL7VIH2c0zWC",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "3c9f714e8b554369a765ac42e6f970a1",
-    "comboName": "111",
-    "userType": "4",
-    "realName": "刘书宝",
-    "remark": "刘书宝牛逼plus"
-}
-```
-
-* 用户列表  
-/api/user?keyword=刘&userType=&comboId=&status=&pageNo=1&pageSize=20 请求方式 GET  
-返回
-```
-{
-    "data": [
-        {
-            "id": "887de78680084e4a97da2ca0108e9a22",
-            "changeVersion": 0,
-            "createdBy": "SYSTEM",
-            "createdDate": 1740319938000,
-            "lastModifiedBy": "SYSTEM",
-            "lastModifiedDate": 1740319938000,
-            "username": "admin",
-            "password": "",
-            "mobile": "13888888888",
-            "status": true,
-            "comboId": "3c9f714e8b554369a765ac42e6f970a1",
-            "comboName": "111",
-            "userType": "4",
-            "realName": "刘书宝",
-            "remark": "刘书宝牛逼plus"
-        }
-    ],
-    "paging": {
-        "firstPage": 1,
-        "lastPage": 1,
-        "nextPage": 0,
-        "prevPage": 0,
-        "currentPage": 1,
-        "totalPage": 1,
-        "rowCount": 1,
-        "pageSize": 20,
-        "hasNext": false,
-        "hasPrev": false,
-        "hasFirst": true,
-        "hasLast": true,
-        "startOffset": 0
-    }
-}
-```
-
-* 用户列表删除用户  
-/api/user/887de78680084e4a97da2ca0108e9a22 请求方式 DELETE  
-返回
-```
-Http Status Code : 200
-```
-
-* 用户列表添加用户  
-/api/user/addUser 请求方式 POST
-```
-{
-    "username": "ffff",
-    "password": "fffff",
-    "mobile": "13888888888",
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-}
-```
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false
-}
-```
-
-* 用户列表修改用户  
-/api/user/editUser 请求方式 PUT
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-}
-```
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false
-}
-```
-* 强制下线客户端  
-/api/user/force-offline-client 请求方式 PUT   
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22"
-}
-```
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false
-}
-```
-
-* 强制下线服务端  
-/api/user/force-offline-server 请求方式 PUT  
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22"
-}
-```
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false
-}
-```
-
-* 强制下线客户端和服务端  
-/api/user/force-offline 请求方式 PUT  
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22"
-}
-```
-返回
-```
-{
-    "id": "887de78680084e4a97da2ca0108e9a22",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1740319938000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1740319938000,
-    "username": "admin",
-    "password": "",
-    "mobile": "13888888888",
-    "status": true,
-    "roles": [
-        "ROLE_ADMIN",
-        "ROLE_USER"
-    ],
-    "comboId": "0a1fb0ca00a04ef696eec719b4313459",
-    "comboName": "Super Engineer",
-    "expireTime": 1772986998000,
-    "userType": "3",
-    "realName": "刘书宝",
-    "remark": "管理员",
-    "port": "port0:vkey_password,port1:10011,port2:10012,port3:10013,port4:10014,port5:10015,port6:10016,port7:10017,port8:10018,port9:10019,port10:10020",
-    "online": false
-}
-```
-
-
-
-* 全球加速vpn列表  
-/api/program/vpn/getVpnPagingListByKeywordAndVpnType?keyword=&vpnType=&pageNo=1&pageSize=10 请求方式 GET  
-返回
-```
-{
-    "data": [
-        {
-            "id": "ff82fd68493b4f609eae87450d949525",
-            "changeVersion": 0,
-            "createdBy": "SYSTEM",
-            "createdDate": 1742130331000,
-            "lastModifiedBy": "SYSTEM",
-            "lastModifiedDate": 1742130331000,
-            "vpnName": "11111",
-            "vpnType": 1,
-            "vpnIp": "111.111.111.111",
-            "vpnIPSec": "fffff",
-            "username": "vpnserver",
-            "password": "testxte",
-            "vpnDesc": "描述"
-        }
-    ],
-    "paging": {
-        "firstPage": 1,
-        "lastPage": 1,
-        "nextPage": 0,
-        "prevPage": 0,
-        "currentPage": 1,
-        "totalPage": 1,
-        "rowCount": 1,
-        "pageSize": 10,
-        "hasNext": false,
-        "hasPrev": false,
-        "hasFirst": true,
-        "hasLast": true,
-        "startOffset": 0
-    }
-}
-```
-
-* 全球加速vpn详情  
-/api/program/vpn/ff82fd68493b4f609eae87450d949525 请求方式 GET  
-返回
-```
-{
-    "id": "ff82fd68493b4f609eae87450d949525",
-    "changeVersion": 0,
-    "createdBy": "SYSTEM",
-    "createdDate": 1742130331000,
-    "lastModifiedBy": "SYSTEM",
-    "lastModifiedDate": 1742130331000,
-    "vpnName": "11111",
-    "vpnType": 1,
-    "vpnIp": "111.111.111.111",
-    "vpnIPSec": "fffff",
-    "username": "vpnserver",
-    "password": "testxte",
-    "vpnDesc": "描述"
-}
-```
-
-* 添加全球加速vpn  
-/api/program/vpn/addVpn 请求方式 POST
-```
-{
-    "vpnName": "222",
-    "vpnType": 2,
-    "vpnIp": "222.222.222.222",
-    "vpnIPSec": "cccccc",
-    "username": "vpnserver2",
-    "password": "testxte123",
-    "vpnDesc": "描述2"
-}
-```
-返回
-```
-{
-    "id": "8485bd76ae0b4b768c28706b2245b505",
-    "createdBy": "admin",
-    "createdDate": 1742131090242,
-    "lastModifiedBy": "admin",
-    "lastModifiedDate": 1742131090242,
-    "vpnName": "222",
-    "vpnType": 2,
-    "vpnIp": "222.222.222.222",
-    "vpnIPSec": "cccccc",
-    "username": "vpnserver2",
-    "password": "testxte123",
-    "vpnDesc": "描述2"
-}
-```
-
-* 修改全球加速vpn  
-/api/program/vpn/editVpn 请求方式 PUT
-```
-{
-    "id": "8485bd76ae0b4b768c28706b2245b505",
-    "vpnName": "222edit",
-    "vpnType": 2,
-    "vpnIp": "222.222.222.222",
-    "vpnIPSec": "cccccc",
-    "username": "vpnserver2",
-    "password": "testxte123",
-    "vpnDesc": "描述2"
-}
-```
-返回
-```
-{
-    "id": "8485bd76ae0b4b768c28706b2245b505",
-    "lastModifiedBy": "admin",
-    "lastModifiedDate": 1742131198570,
-    "vpnName": "222edit",
-    "vpnType": 2,
-    "vpnIp": "222.222.222.222",
-    "vpnIPSec": "cccccc",
-    "username": "vpnserver2",
-    "password": "testxte123",
-    "vpnDesc": "描述2"
-}
-```
-
-* 删除全球加速vpn  
-/api/program/vpn/deleteVpn/ff82fd68493b4f609eae87450d949525 请求方式 DELETE  
-  返回
-```
-Http Status Code : 200
-```
-
-* 用户是否可以注册  匿名接口，不需要token  
-/api/auth/can-register  请求方式 GET  
-返回
-```
-{
-    "canRegister": true
-}
-```
-
-* 禁止服务器注册  
-/api/program/server/stop-regester 请求方式 PUT  
-返回
-```
-Http Status Code : 200
-```
-
-* 启用服务器注册  
-/api/program/server/start-regester 请求方式 PUT  
-返回
-```
-Http Status Code : 200
-```
-
-* 获取服务器SoftHub列表  
-/api/program/server/12312312313131231/softether-hub 请求方式 GET
-返回
-```
-{
-    "result": {
-        "HubList": [
-            {
-                "CreatedTime_dt": "2025-03-25T13:35:43.646Z",
-                "Ex.Recv.BroadcastBytes_u64": 0,
-                "Ex.Recv.BroadcastCount_u64": 0,
-                "Ex.Recv.UnicastBytes_u64": 0,
-                "Ex.Recv.UnicastCount_u64": 0,
-                "Ex.Send.BroadcastBytes_u64": 0,
-                "Ex.Send.BroadcastCount_u64": 0,
-                "Ex.Send.UnicastBytes_u64": 0,
-                "Ex.Send.UnicastCount_u64": 0,
-                "HubName_str": "123",
-                "HubType_u32": 0,
-                "IsTrafficFilled_bool": true,
-                "LastCommTime_dt": "2025-03-25T13:35:43.645Z",
-                "LastLoginTime_dt": "2025-03-25T13:35:43.645Z",
-                "NumGroups_u32": 0,
-                "NumIpTables_u32": 0,
-                "NumLogin_u32": 0,
-                "NumMacTables_u32": 0,
-                "NumSessions_u32": 0,
-                "NumUsers_u32": 1,
-                "Online_bool": true
-            }
-        ]
-    },
-    "jsonrpc": "2.0",
-    "id": "rpc_call_id"
-}
-```
-
-* 给新的服务器上添加nps用户，根据用户的套餐和服务器是国内还是国际，或排除被禁用的用户  
-/api/program/server/nps/addServer 请求方式 POST  
-```
-{"id": "12314124daxwtwetxx"}
-```
-返回, 随着用户的增多，可能时间会变得更加久  
-```
-Http Status Code : 200
-```
-
+以上接口文档完成！！！
